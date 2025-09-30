@@ -5,7 +5,7 @@ const socketManager = {
     initialize(server) {
         this.io = require('socket.io')(server, {
             cors: {
-                origin: 'http://localhost:3000',
+                origin: process.env.HOST_URL ?? 'http://localhost:3000',
                 credentials: true,
             },
             allowRequest: (req, callback) => {
